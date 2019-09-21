@@ -1,10 +1,15 @@
+                                #Note that this code is done on Python 2.7 Environment
+
+
+
 #Taking the input for pixels of window size 3
 i6,i7,i8 = raw_input().split()
 i5,Ic,i1 = raw_input().split()
 i4,i3,i2 = raw_input().split()
 
 #lists for storing the sign and magnitude patterns
-signs = magn = []
+signs = []
+magn = []
 
 
 #Storing the neighbours of each pixel

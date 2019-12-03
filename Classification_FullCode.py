@@ -22,10 +22,10 @@ warnings.filterwarnings("ignore")
 x = pd.read_csv(r'F:\4th_Year_project_files\Dataset_DDSM_database\LNIP_super_all.csv')
 
 training_set,test_set = train_test_split(x,test_size=0.2,random_state=0)
-X_train = training_set.iloc[:,0:256].values
-Y_train = training_set.iloc[:,256].values
-X_test = test_set.iloc[:,0:256].values
-Y_test = test_set.iloc[:,256].values
+X_train = training_set.iloc[:,0:512].values
+Y_train = training_set.iloc[:,512].values
+X_test = test_set.iloc[:,0:512].values
+Y_test = test_set.iloc[:,512].values
 
 classifier = SVC(C=1000, cache_size=200, class_weight=None, coef0=0.0,
     decision_function_shape='ovr', degree=3, gamma=10, kernel='rbf',
@@ -87,5 +87,3 @@ predictions = [round(value) for value in y_pred]
 # evaluate predictions
 accuracy = accuracy_score(Y_test, predictions)
 print("Accuracy: %.2f%%" % (accuracy * 100.0))
-
-

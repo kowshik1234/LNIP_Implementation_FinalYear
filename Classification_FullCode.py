@@ -19,7 +19,7 @@ from sklearn.linear_model import SGDClassifier
 import warnings
 warnings.filterwarnings("ignore")
 
-x = pd.read_csv(r'F:\4th_Year_project_files\Dataset_DDSM_database\LNIP_all.csv')
+x = pd.read_csv(r'F:\4th_Year_project_files\Dataset_DDSM_database\LNIP_super_all.csv')
 
 training_set,test_set = train_test_split(x,test_size=0.2,random_state=0)
 X_train = training_set.iloc[:,0:256].values

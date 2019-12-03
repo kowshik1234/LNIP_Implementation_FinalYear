@@ -19,6 +19,7 @@ from sklearn.linear_model import SGDClassifier
 import warnings
 warnings.filterwarnings("ignore")
 
+
 x = pd.read_csv(r'F:\4th_Year_project_files\Dataset_DDSM_database\LNIP_super_all.csv')
 
 training_set,test_set = train_test_split(x,test_size=0.2,random_state=0)
@@ -39,37 +40,25 @@ accuracy = float(cm.diagonal().sum())/len(Y_test)
 print("\nAccuracy Of Linear SVM For The Given Dataset: ", accuracy)
 
 #########################Linear SVM Classifier###############
-SVM = svm.LinearSVC()
-SVM.fit(X_train,Y_train)
-SVM_pred = SVM.predict(X_test)
-cm = confusion_matrix(Y_test,SVM_pred)
-accuracy = float(cm.diagonal().sum())/len(Y_test)
-print("\nAccuracy Of Linear SVM For The Given Dataset: ", accuracy)
-
+##SVM = svm.LinearSVC()
+##SVM.fit(X_train,Y_train)
+##SVM_pred = SVM.predict(X_test)
+##cm = confusion_matrix(Y_test,SVM_pred)
+##accuracy = float(cm.diagonal().sum())/len(Y_test)
+##print("\nAccuracy Of Linear SVM For The Given Dataset: ", accuracy)
+##
 #########################SVM with Radial Basis Function Kernel##############
-classifier = SVC(kernel='rbf', random_state = 1)
-classifier.fit(X_train,Y_train)
-rbf_predict = classifier.predict(X_test)
-cm = confusion_matrix(Y_test,rbf_predict)
-accuracy = float(cm.diagonal().sum())/len(Y_test)
-print("\nAccuracy Of Radial Basis Function For The Given Dataset : ", accuracy)
-
+##classifier = SVC(kernel='rbf', random_state = 1)
+##classifier.fit(X_train,Y_train)
+##rbf_predict = classifier.predict(X_test)
+##cm = confusion_matrix(Y_test,rbf_predict)
+##accuracy = float(cm.diagonal().sum())/len(Y_test)
+##print("\nAccuracy Of Radial Basis Function For The Given Dataset : ", accuracy)
+##
 ######################### Random Forest Classifier#################
 rfc = RandomForestClassifier()
 rfc.fit(X_train,Y_train)
-##
-##
-###############################Kitchen Sink################
-rbf_feature = RBFSampler(gamma=0.001,n_components=59 ,random_state=0)
-X_features = rbf_feature.fit_transform(X_train)
-clf = SGDClassifier(max_iter=20,tol=1)
-clf.fit(X_features, Y_train)
-res = clf.predict(X_test)
-cm = confusion_matrix(Y_test,res)
-accuracy = float(cm.diagonal().sum())/len(Y_test)
-print("\nAccuracy Of Random Forest For The Given Dataset :", accuracy)
-print(res)
-##
+
 #########################Making Predictions##################
 rfc_predict = rfc.predict(X_test)
 cm = confusion_matrix(Y_test,rfc_predict)
@@ -83,7 +72,9 @@ y_pred = model.predict(X_test)
 ##cm = confusion_matrix(Y_test,y_pred)
 ##accuracy = float(cm.diagonal().sum())/len(Y_test)
 ##print("Accuracy is ->",accuracy)
+
 predictions = [round(value) for value in y_pred]
 # evaluate predictions
 accuracy = accuracy_score(Y_test, predictions)
 print("Accuracy: %.2f%%" % (accuracy * 100.0))
+

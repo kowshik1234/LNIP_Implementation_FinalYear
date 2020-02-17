@@ -1,3 +1,5 @@
+#pip install opencv-python==3.4.2.16 && pip install opencv-contrib-python==3.4.2.16
+
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
